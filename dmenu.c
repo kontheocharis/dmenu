@@ -328,22 +328,22 @@ keypress(XKeyEvent *ev)
 	if (ev->state & ControlMask) {
 		switch(ksym) {
 		case XK_a: ksym = XK_Home;      break;
-		case XK_b: ksym = XK_Left;      break;
+		case XK_h: ksym = XK_Left;      break; /* custom */
 		case XK_c: ksym = XK_Escape;    break;
 		case XK_d: ksym = XK_Delete;    break;
 		case XK_e: ksym = XK_End;       break;
-		case XK_f: ksym = XK_Right;     break;
+		case XK_l: ksym = XK_Right;     break; /* custom */
 		case XK_g: ksym = XK_Escape;    break;
-		case XK_h: ksym = XK_BackSpace; break;
+		case XK_b: ksym = XK_BackSpace; break;
 		case XK_i: ksym = XK_Tab;       break;
-		case XK_j: /* fallthrough */
+		case XK_n: /* fallthrough */
 		case XK_J: /* fallthrough */
 		case XK_m: /* fallthrough */
 		case XK_M: ksym = XK_Return; ev->state &= ~ControlMask; break;
-		case XK_n: ksym = XK_Down;      break;
-		case XK_p: ksym = XK_Up;        break;
+		case XK_j: ksym = XK_Down;      break; /* custom */
+		case XK_k: ksym = XK_Up;        break; /* custom */
 
-		case XK_k: /* delete right */
+		case XK_p: /* delete right */
 			text[cursor] = '\0';
 			match();
 			break;
