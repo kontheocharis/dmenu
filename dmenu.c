@@ -393,7 +393,13 @@ keypress(XKeyEvent *ev)
 		default:
 			return;
 		}
-	}
+    } 
+
+    // Custom: support for tabbing
+    switch(ksym){
+    case XK_Tab: ksym = XK_Right; break;
+    case XK_ISO_Left_Tab: ksym = XK_Left; break;
+    }
 
 	switch(ksym) {
 	default:
@@ -487,14 +493,6 @@ insert:
 			curr = next;
 			calcoffsets();
 		}
-		break;
-	case XK_Tab:
-		if (!sel)
-			return;
-		strncpy(text, sel->text, sizeof text - 1);
-		text[sizeof text - 1] = '\0';
-		cursor = strlen(text);
-		match();
 		break;
 	}
 
